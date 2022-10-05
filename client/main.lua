@@ -4,6 +4,8 @@ local IsIplActive = IsIplActive
 
 local SetScenarioGroupEnabled = SetScenarioGroupEnabled
 local SetDeepOceanScaler = SetDeepOceanScaler
+local ResetDeepOceanScaler = ResetDeepOceanScaler
+local LoadGlobalWaterType = LoadGlobalWaterType
 local SetIslandHopperEnabled = SetIslandHopperEnabled
 local SetAiGlobalPathNodesType = SetAiGlobalPathNodesType
 local SetAudioFlag = SetAudioFlag
@@ -1408,6 +1410,7 @@ end
 
 function Loader.InCayo()
     SetScenarioGroupEnabled('Heist_Island_Peds', true)
+    LoadGlobalWaterType(1)
     SetDeepOceanScaler(0.0)
     SetIslandHopperEnabled('HeistIsland', true)
     SetAiGlobalPathNodesType(true)
@@ -1419,6 +1422,8 @@ end
 function Loader.Clear(clear)
     SetScenarioGroupEnabled('Heist_Island_Peds', false)
     SetAiGlobalPathNodesType(false)
+    LoadGlobalWaterType(0)
+    ResetDeepOceanScaler()
     SetAudioFlag('PlayerOnDLCHeist4Island', false)
     SetAmbientZoneListStatePersistent('AZL_DLC_Hei4_Island_Zones', false, false)
     SetAmbientZoneListStatePersistent('AZL_DLC_Hei4_Island_Disabled_Zones', true, false)
